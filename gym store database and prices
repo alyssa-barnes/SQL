@@ -1,0 +1,22 @@
+-- Create gym store database
+
+CREATE TABLE prime_performance (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, color TEXT, quantity INTEGER);
+
+INSERT INTO prime_performance VALUES (1, "OWC women's crop tee", 23, "white", 3);
+INSERT INTO prime_performance VALUES (2, "OWC tee", 29, "black", 5);
+INSERT INTO prime_performance VALUES (3, "Prime Performance tee", 25, "black", 9);
+INSERT INTO prime_performance VALUES (4, "OWC crop Hoodie", 39, "black", 6);
+INSERT INTO prime_performance VALUES (5, "Prime Performance Crop Hoodie", 39, "army green", 8);
+INSERT INTO prime_performance VALUES (6, "OWC unisex fleece sweatpants", 38, "Heather grey", 4);
+INSERT INTO prime_performance VALUES (7, "OWC Hoodie", 35, "black", 5);
+INSERT INTO prime_performance VALUES (8, "Prime Performance Hoodie", 35, "black", 9);
+INSERT INTO prime_performance VALUES (9, "OWC Backpack", 45, "black", 5);
+INSERT INTO prime_performance VALUES (10, "Prime Performance Coffee Mug", 9, "white", 8);
+INSERT INTO prime_performance VALUES (11, "Prime Performance Water Bottle", 24, "white", 9);
+INSERT INTO prime_performance VALUES (12, "Prime Performance Men's Shorts", 35, "grey", 5);
+INSERT INTO prime_performance VALUES (13, "Prime performance headband", 10, "Grey", 8);
+INSERT INTO prime_performance VALUES (14, "Prime performance Simple logo tee", 29, "white", 9);
+INSERT INTO prime_performance VALUES (15, "LD nationals tee", 29, "grey", 9);
+
+-- Display the database ordered by price
+SELECT * FROM prime_performance WHERE quantity > 5 ORDER BY price;
