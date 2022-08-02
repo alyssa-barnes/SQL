@@ -1,0 +1,91 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    profession TEXT,
+    birthdate TEXT);
+
+INSERT INTO famous_people VALUES (1, "Jennifer Aniston", "actor", "2-11-1969");
+INSERT INTO famous_people VALUES (2, "Michael Jordan", "Athlete", "2-17-1963");
+INSERT INTO famous_people VALUES (3, "Dwayne Johnson", "actor", "5-2-1972");
+INSERT INTO famous_people VALUES (4, "Kevin Heart", "actor", "7-6-1979");
+INSERT INTO famous_people VALUES (5, "Miley Cyrus", "muscican", "11-23-1992");
+INSERT INTO famous_people VALUES (6, "Lady Gaga", "muscican", "3-28-1986");
+INSERT INTO famous_people VALUES (7, "Joe Rogan", "comdeian", "8-11-67");
+INSERT INTO famous_people VALUES (8, "Bill Burr", "comdeian", "6-10-1968");
+INSERT INTO famous_people VALUES (9, "Tom Clancy", "author", "10-1-47");
+INSERT INTO famous_people VALUES (10, "Steven Rinella", "author", "2-13-1974");
+INSERT INTO famous_people VALUES (11, "Ronda Rousey", "athlete", "2-1-1987");
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    famous_people_id INTEGER,
+    movie_name TEXT);
+    
+INSERT INTO movies VALUES (1, 1, "Wanderlust");
+INSERT INTO movies VALUES (2, 1, "along came polly");
+INSERT INTO movies VALUES (3, 1, "The Switch");
+INSERT INTO movies VALUES (4, 1, "Just go with it");
+INSERT INTO movies VALUES (5, 1, "Cake");
+INSERT INTO movies VALUES (6, 2, "Space Jam");
+INSERT INTO movies VALUES (7, 3, "The Mummy Returns");
+INSERT INTO movies VALUES (8, 3, "Jungle Cruise");
+INSERT INTO movies VALUES (9, 3, "The Scorpion King");
+INSERT INTO movies VALUES (10, 3, "Jumanji");
+INSERT INTO movies VALUES (11, 3, "Central Intelligence");
+INSERT INTO movies VALUES (12, 4, "Central Intelligence");
+INSERT INTO movies VALUES (13, 4, "Jumanji");
+INSERT INTO movies VALUES (14, 4, "Get Hard");
+INSERT INTO movies VALUES (15, 4, "The Secret Life of Pets");
+INSERT INTO movies VALUES (16, 5, "The Hannah Montana Movie");
+INSERT INTO movies VALUES (17, 5, "The Last Song");
+INSERT INTO movies VALUES (18, 5, "Bolt");
+INSERT INTO movies VALUES (19, 6, "A Star Is Born");
+INSERT INTO movies VALUES (20, 6, "House of Gucci");
+INSERT INTO movies VALUES (21, 6, "Machete Kills");
+INSERT INTO movies VALUES (22, 6, "Sin City: A Dame to Kill For");
+INSERT INTO movies VALUES (23, 7, "Zookeeper");
+INSERT INTO movies VALUES (24, 7, "Here Comes the Boom");
+INSERT INTO movies VALUES (25, 8, "Date night");
+INSERT INTO movies VALUES (26, 8, "The King of Staten Island");
+INSERT INTO movies VALUES (27, 10, "Stars in the Sky");
+INSERT INTO movies VALUES (28, 11, "Fast 7");
+INSERT INTO movies VALUES (29, 11, "Entourage");
+INSERT INTO movies VALUES (30, 11, "The Expendables 3");
+
+    
+CREATE TABLE books (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    famous_people_id INTEGER, 
+    book_name TEXT);
+
+INSERT INTO books VALUES (1, 2, "For the Love of the Game");
+INSERT INTO books VALUES (2, 2, "Driven from Within");
+INSERT INTO books VALUES (3, 2, "I Can't Accept Not Trying");
+INSERT INTO books VALUES (4, 3, "The Life, Lessons & Rules for Success");
+INSERT INTO books VALUES (5, 4, "You Can't Make This up");
+INSERT INTO books VALUES (6, 4, "Marcus Makes a Movie");
+INSERT INTO books VALUES (7, 4, "Marcus Makes it Big"); 
+INSERT INTO books VALUES (8, 5, "Miles to go"); 
+INSERT INTO books VALUES (9, 6, "Channel Kindness: Stories of Kindness");
+INSERT INTO books VALUES (10, 8, "Cheat: A Man's Guide To Infidelity");
+INSERT INTO books VALUES (11, 9, "The Hunt For Red October");
+INSERT INTO books VALUES (12, 9, "The Sum of All Fears");
+INSERT INTO books VALUES (13, 9, "Patriot Games");
+INSERT INTO books VALUES (14, 9, "Rainbow six");
+INSERT INTO books VALUES (15, 9, "Clear and present danger");
+INSERT INTO books VALUES (16, 10, "The Meateater");
+INSERT INTO books VALUES (17, 10, "American Buffalo");
+INSERT INTO books VALUES (18, 10, "the Meateater Guide to Wilderness Skills and Survival");
+INSERT INTO books VALUES (19, 10, "Hunting, Butchering and Cooking Wild Game");
+INSERT INTO books VALUES (20, 11, "My Fight/Your Fight");
+
+SELECT famous_people.name, famous_people.profession, movies.movie_name FROM famous_people
+    JOIN movies
+    ON famous_people.id = movies.famous_people_id;
+    
+SELECT famous_people.name, books.book_name FROM famous_people
+    LEFT OUTER JOIN books
+    ON famous_people.id = books.famous_people_id;
+
+SELECT movies.movie_name, books.book_name FROM movies
+    JOIN books
+    ON movies.famous_people_id = books.famous_people_id;
